@@ -7,57 +7,24 @@
   <div class="container">
     <form method="POST" action="/">
       <div class="row">
-        <div class="col-lg-4 col-4">
+        {{#each targets}}
+        <div class="col-lg-4 col-12">
           <div class="card" style="width: 18rem;">
-            <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5668/angry-developer.jpg"
-              class="card-img-top" style="height: 200px;" alt="工程師">
+            <img src="{{this.image}}" class="card-img-top" style="height: 200px;" alt="{{this.title}}">
             <div class="card-body mx-auto">
 
               <div class="input-group">
                 <div class="input-group-text">
-                  <input type="radio" name="job" id="engineer" value="engineer"
+                  <input type="radio" name="job" id="{{this.id}}" value="{{this.id}}"
                     aria-label="Radio button for following text input">
                 </div>
               </div>
-              <label for="engineer">工程師</label>
+              <label for="{{this.id}}">{{this.title}}</label>
             </div>
 
           </div>
         </div>
-        <div class="col-lg-4 col-4">
-          <div class="card" style="width: 18rem;">
-            <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5667/angry-designer.jpg"
-              class="card-img-top" style="height: 200px;" alt="設計師">
-            <div class="card-body mx-auto">
-
-              <div class="input-group">
-                <div class="input-group-text">
-                  <input type="radio" name="job" id="designer" value="designer"
-                    aria-label="Radio button for following text input">
-                </div>
-              </div>
-              <label for="designer">設計師</label>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-lg-4 col-4">
-
-          <div class="card" style="width: 18rem;">
-            <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5669/angry-founder.jpg"
-              class="card-img-top" style="height: 200px;" alt="創業家">
-            <div class="card-body mx-auto">
-
-              <div class="input-group">
-                <div class="input-group-text">
-                  <input type="radio" name="job" id="entrepreneur" value="entrepreneur"
-                    aria-label="Radio button for following text input">
-                </div>
-              </div>
-              <label for="entrepreneur">創業家</label>
-            </div>
-          </div>
-        </div>
+        {{/each}}
       </div>
 
   </div>
