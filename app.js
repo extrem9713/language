@@ -2,8 +2,8 @@ const express = require('express')
 const app = express()
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
-const generateLanguage = require('./language.js')
 const person = require('./people.json')
+const generateMessage = require('./language.js')
 const port = 3000
 
 app.engine('handlebars', exphbs({
@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
   const options = req.body
-  const language = generateLanguage(options)
+  const language = generateMessage(options)
   res.render('index', {
     language: language,
     targets: person.target,
